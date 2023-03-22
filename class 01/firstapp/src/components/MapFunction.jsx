@@ -1,39 +1,22 @@
-function MapFunction() {
-    const data = [
-        {
-            id: "1",
-            title: "Tiramisu",
-            price: "500"
+function MapFunction(props) {
 
-        },
-        {
-            id: "2",
-            title: "lemon Ice Creame",
-            price: "400"
-
-        },
-        {
-            id: "3",
-            title: "Chocolate mousse",
-            price: "900"
-
-        }
-    ];
-
-    const fruitsData = data.filter((data) => {
-        if (data.price <= 500) {
-            return data;
-        }
-    }).sort((a,b) =>{
-        return a.price - b.price;
-    }).map((data) => {
-        return <li> {data.title} - {data.price} </li>;
-    })
+    const lowCaloriesDesserts = props.data
+        .filter((dessert) => {
+            return dessert.calories <= 500;
+        })
+        .sort((a, b) => {
+            return a.calories - b.calories;
+        })
+        .map((dessert) => {
+            return (
+                <li> {dessert.name} - {dessert.calories} cal</li>
+            );
+        });
     return (
         <div className="map-function">
             <h2>Fruits List:</h2>
             <ul>
-                {fruitsData}
+                {lowCaloriesDesserts}
             </ul>
         </div>
     );

@@ -20,11 +20,13 @@ function MapFunction() {
         }
     ];
 
-    const fruitsData = data.filter((data)=>{
+    const fruitsData = data.filter((data) => {
         if (data.price <= 500) {
             return data;
         }
-    }).map((data)=>{
+    }).sort((a,b) =>{
+        return a.price - b.price;
+    }).map((data) => {
         return <li> {data.title} - {data.price} </li>;
     })
     return (

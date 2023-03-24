@@ -8,7 +8,7 @@ const ToDo = (props) => {
     </li>
     );
 }
-function App() {
+function ReversFunction() {
     const [todos, setTodos] = useState([
         {
             id: 'todo1',
@@ -26,11 +26,12 @@ function App() {
         <div className="App">
         <button onClick={reverseOrder}>reverse</button>
             <ul>
-                {todos.map((todo, index) => <ToDo id={todo.id} createdAt={todo.createdAt} />
-                )}
+                {todos.map((todo, index) => {
+                    <ToDo id={todo.id} createdAt={todo.createdAt} />
+                })}
             </ul>
         </div>
     );
 }
 
-export default App;
+export default ReversFunction;
